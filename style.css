@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*=================背景底=========================================================*/
+#back{
+    /*display: grid;*/ /*======會增加上下空白間隔====*/
+    width: 100%;
+    height: 100vh;
+    background-image:url(ima/bg1.png);   
+    background-size: cover;  /*填滿整個螢幕*/
+    background-position: center; /*置中螢幕*/
+    position: relative;
+}
+/*=================上層===========================================================*/
+
+.top{   /*===========設定左上&右上布局========*/
+    width: 90%;
+    margin: auto;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;/*用空白填滿中間，等同將物件平分貼齊左右兩側*/
+    position: relative;
+    z-index: 10;/*下往上數第10層，代表此物件在最非常上層不易被蓋住*/
+}
+.logo{  /*===========左上logo大小調整+手指========*/
+    width: 60px;
+    margin: 30px 0;
+    cursor: pointer;
+}
+
+.tr{    /*============右上 按鈕+頭貼 位置========*/
+    display: flex;
+    align-items: center;
+}
+
+button{ /*===========右上 按鈕 設計========*/
+    padding: 8px 25px;
+    background: transparent;    /*=======按鈕 背景====*/
+    outline: none;
+    border: 2px solid #fff; /*=======邊框 粗度 & 顏色====*/
+    border-radius: 20px;    /*=======邊框 圓弧====*/
+    color: white;   /*=======內容物 【字體】 顏色====*/
+    font-size: 12px;    /*=======內容物 【字體】 大小====*/
+    font-weight: bold;  /*=======內容物 【字體】 粗體====*/
+    cursor: pointer;
+}
+
+.user{  /*===========右上 頭貼 大小========*/
+    width: 30px;
+    margin-left: 50px; /*=======與左側 按鈕 間隔====*/
+    cursor: pointer;
+}
+
+
+/*=================中層===========================================================*/
+.mid{   /*===========左半 【半透玻璃背景】========*/
+    width: 50%; /*======【寬度】整個畫面一半=====*/
+    height: 100vh;  /*======【高度】整個畫面=====*/
+    background: rgba(86, 86, 86, 0.3);  /*======【顏色】半透淺灰色=====*/
+    backdrop-filter: blur(10px);    /*======【模糊】毛玻璃質感=====*/
+    position: absolute; /*======【位置】絕對位置(可覆蓋上top&下down區域)=====*/
+    left: 0;
+    top:0;
+}
+
+.text{  /*===========左半 【文字區塊】 位置========*/
+    width: 550px;   /*===========【寬度】 文字區塊========*/
+    color: white;   /*======【顏色】 文字=====*/
+    position: absolute;
+    right: 0;   /*===========【位置】 靠右切齊========*/
+    top: 50%;   /*===========【位置】 置中步驟1========*/
+    transform: translateY(-50%);    /*===========【位置】 置中步驟2，此步為沿著Y軸向上========*/
+}
+
+.text h1{   /*===========左半 【標題】 ========*/
+    font-size: 60px;    /*======【大小】字體 ========*/
+    letter-spacing: 10px;   /*======【間距】字體 ========*/
+}
+
+.text p{    /*===========左半 【內文】 ========*/
+    color: #f0eef1; /*======【顏色】 文字=====*/
+    font-size: 11px;    /*======【大小】字體 ========*/
+    margin: 20px 0; /*======【間距】 與 標題 上下間隔========*/
+    line-height: 18px;  /*======【間距】字行 上下間距 ========*/
+}
+
+.text input{    /*===========左半 【搜尋框】 ========*/
+   width: 50%;  /*===========搜尋框 【長度】為 text文字框的50% ========*/
+   padding: 8px 10px;   /*===========搜尋框 【內寬度】 ========*/
+   outline: none;
+   border: 2px solid #fff;  /*===========搜尋框線 【粗度】 ========*/
+   border-radius: 20px; /*=======邊框 【圓弧】====*/
+   background: transparent; /*=======搜尋框 【背景】 穿透====*/
+   color: #fff;
+   font-size: 12px; 
+}
+
+::placeholder{
+    color: #ccc; 
+}
+
+/*=================下層===========================================================*/
+.down{  /*=========== 【預覽縮圖+箭頭】 位置========*/
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+    bottom: 50px;
+}
+
+#prev ,#next{
+    width: 20px;
+    cursor: pointer;
+}
+
+.preview{   /*=========== 【預覽縮圖行】 位置+大小========*/
+    display: flex;
+    align-items: center;
+    margin: 0 60px; /*========【預覽縮圖行】 與箭頭之間空白寬度======*/
+}
+
+.preview img{   /*=========== 【個別縮圖】 間隔+寬度+透明度========*/
+    width: 60px;    /*====== 【縮圖】 寬度=====*/
+    margin: 0 10px; /*====== 【縮圖】 左右空白間隔=====*/
+    opacity: 0.4;   /*====== 【縮圖】 透明度=====*/
+}
+
+.preview .act{
+    display: block;
+    border: 3px solid#fff;
+    width: 100px;
+    opacity: 1;
+}
